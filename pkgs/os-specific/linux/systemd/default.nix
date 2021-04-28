@@ -142,6 +142,7 @@ stdenv.mkDerivation {
     ./0008-Fix-hwdb-paths.patch
     ./0009-Change-usr-share-zoneinfo-to-etc-zoneinfo.patch
     ./0010-localectl-use-etc-X11-xkb-for-list-x11.patch
+    ./0001-build-don-t-create-statedir-and-don-t-touch-prefixdi.patch
     ./0011-inherit-systemd-environment-when-calling-generators.patch
     ./0012-add-rootprefix-to-lookup-dir-paths.patch
     ./0013-systemd-shutdown-execute-scripts-in-etc-systemd-syst.patch

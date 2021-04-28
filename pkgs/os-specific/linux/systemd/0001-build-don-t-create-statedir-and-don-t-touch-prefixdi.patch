@@ -1,0 +1,26 @@
+From 4cdc0589b69f4f077eb12d283b73585b1554138b Mon Sep 17 00:00:00 2001
+From: Franz Pletz <fpletz@fnordicwalking.de>
+Date: Sun, 11 Feb 2018 04:37:44 +0100
+Subject: [PATCH] build: don't create statedir and don't touch prefixdir
+
+---
+ meson.build | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index 6a474afdac..b25dc80705 100644
+--- a/meson.build
++++ b/meson.build
+@@ -3492,9 +3492,6 @@ install_data('LICENSE.GPL2',
+              'docs/GVARIANT-SERIALIZATION.md',
+              install_dir : docdir)
+ 
+-meson.add_install_script('sh', '-c', mkdir_p.format(systemdstatedir))
+-meson.add_install_script('sh', '-c', 'touch $DESTDIR@0@'.format(prefixdir))
+-
+ ############################################################
+ 
+ check_help = find_program('tools/check-help.sh')
+-- 
+2.29.3
+
