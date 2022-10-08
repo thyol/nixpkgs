@@ -7,6 +7,9 @@
 let
   python = python3.override {
     packageOverrides = self: super: {
+      flask = super.flask.overridePythonAttrs (old: rec {
+        doCheck = false;
+      });
       flask-wtf = super.flask-wtf.overridePythonAttrs (old: rec {
         version = "0.15.1";
         src = old.src.override {
@@ -19,11 +22,14 @@ let
         ];
       });
       werkzeug = super.werkzeug.overridePythonAttrs (old: rec {
-        version = "2.0.3";
+        version = "2.2.2";
         src = old.src.override {
           inherit version;
-          sha256 = "b863f8ff057c522164b6067c9e28b041161b4be5ba4d0daceeaa50a163822d3c";
+          sha256 = "sha256-fqLUgyLMfA+LOiFe1z6r17XXXQtQ4xqwBihsz/ngC48=";
         };
+        propagatedBuildInputs = old.propagatedBuildInputs ++ [
+          python.pkgs.markupsafe
+        ];
       });
     };
   };
